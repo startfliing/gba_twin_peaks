@@ -178,11 +178,12 @@ int main(){
 
         REG_DISPCNT = DCNT_BG0 | DCNT_BG1 | DCNT_MODE0 | DCNT_OBJ | DCNT_OBJ_1D;
 
-        REG_BLDCNT = BLD_BUILD(BLD_BG0, BLD_BG1, 1);
+        REG_BLDCNT = BLD_BUILD(BLD_BG0, BLD_BG1, 3);
         REG_BLDALPHA = BLDA_BUILD(0,0);
+        REG_BLDY = 16;
         
         Scene scene;
-        
+
         buildScene(&scene);
 
         mmStart( MOD_TWINPEAKSCUSTOM, MM_PLAY_ONCE );
@@ -214,5 +215,6 @@ int main(){
         }
 
         delete press;
+        VBlankIntrWait();
     }
 }

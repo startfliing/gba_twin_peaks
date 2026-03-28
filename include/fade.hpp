@@ -32,7 +32,7 @@ class FadeAction : public SceneAction {
                     bld_bot = 0;
                     break;
                 case FadeMode::FROM_BLACK:
-                    bld_mode = 1;
+                    bld_mode = 3;
                     bld_y = 16;
                     break;
                 case FadeMode::TO_BLACK:
@@ -60,7 +60,7 @@ class FadeAction : public SceneAction {
                     REG_BLDALPHA = BLDA_BUILD(ev, 16-ev);
                     break;
                 case FadeMode::FROM_BLACK:
-                    //REG_BLDY = BLDY_BUILD(ev);
+                    REG_BLDY = BLDY_BUILD(ev);
                     REG_BLDALPHA = BLDA_BUILD(16-ev, 0);
                     break;
                 case FadeMode::TO_BLACK:
