@@ -181,6 +181,18 @@ int main(){
         REG_BLDCNT = BLD_BUILD(BLD_BG0, BLD_BG1, 3);
         REG_BLDALPHA = BLDA_BUILD(0,0);
         REG_BLDY = 16;
+
+        //press any button to replay
+        SceneElement* press = new NameElement(0, 0, 72, "PRESS ANY BUTTON");
+        press->activate();
+
+        while(!key_hit(KEY_ANY)){
+            key_poll();
+            VBlankIntrWait();
+        }
+
+        delete press;
+        VBlankIntrWait();
         
         Scene scene;
 
@@ -205,16 +217,6 @@ int main(){
             VBlankIntrWait();
         }
 
-        //press any button to replay
-        SceneElement* press = new NameElement(0, 0, 72, "PRESS ANY BUTTON");
-        press->activate();
-
-        while(!key_hit(KEY_ANY)){
-            key_poll();
-            VBlankIntrWait();
-        }
-
-        delete press;
-        VBlankIntrWait();
+        
     }
 }
